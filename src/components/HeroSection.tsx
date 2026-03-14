@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, FileDown } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const HeroSection = () => {
   return (
