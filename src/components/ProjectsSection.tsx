@@ -29,8 +29,8 @@ const projects = [
   },
   {
     id: "03",
-    title: "ATS Commissioning — Socomec 1000kVA",
-    overview: "Commissioned a Socomec 1000kVA Automatic Transfer Switch in a generator-to-generator configuration for redundant power supply with master/secondary ATS coordination.",
+    title: "ATS Commissioning — Socomec ATyS 2000A",
+    overview: "Commissioned a Socomec ATyS 2000A Automatic Transfer Switch in a generator-to-generator configuration for redundant power supply with master/secondary ATS coordination.",
     technologies: ["Socomec ATS", "Power Systems", "Synchronization"],
     challenge: "Orchestrating dual ATS logic for seamless generator-to-generator transfer while ensuring zero downtime in power delivery.",
     images: [projectAts],
