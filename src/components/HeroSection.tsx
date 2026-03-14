@@ -4,6 +4,14 @@ import heroBg from "@/assets/hero-bg.jpg";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const HeroSection = () => {
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/2026_Shawn_Otieno_Resume_Best.pdf"; // Change to your CV filename
+    link.download = "Shawn-Otieno-CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
     <section className="relative min-h-screen flex items-center justify-center grid-bg overflow-hidden pt-[calc(2rem+3.5rem)]">
       {/* Background image overlay */}
@@ -47,13 +55,13 @@ const HeroSection = () => {
               >
                 Contact Me
               </a>
-              <a
-                href="#"
+              <button
+                onClick={handleDownloadCV}
                 className="btn-press inline-flex items-center gap-2 px-6 py-3 border border-foreground/20 text-foreground font-mono text-xs uppercase tracking-widest rounded-sm hover:border-primary/50 transition-colors"
               >
                 <FileDown size={14} strokeWidth={1.5} />
                 Download CV
-              </a>
+              </button>
             </div>
           </motion.div>
           {/* Profile Photo */}
