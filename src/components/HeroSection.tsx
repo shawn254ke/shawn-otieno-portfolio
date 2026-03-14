@@ -21,7 +21,7 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 md:gap-12 lg:gap-16">
           
 
           {/* Content */}
@@ -29,7 +29,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="max-w-4xl"
+            className="max-w-4xl w-full md:flex-1 order-2 md:order-1"
           >
             <p className="section-label mb-4">Instrumentation & Control · Software Engineering</p>
             <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-[0.95] mb-6 text-foreground">
@@ -69,13 +69,13 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex-shrink-0"
+            className="flex-shrink-0 flex justify-center order-1 md:order-2 w-full md:w-auto"
           >
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl" />
-              <Avatar className="h-32 w-32 md:h-60 md:w-60 relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl md:blur-3xl" />
+              <Avatar className="h-48 w-48 sm:h-56 sm:w-56 md:h-60 md:w-60 lg:h-80 lg:w-80 relative">
                 <AvatarImage src="/profile.png" alt="Shawn Otieno" />
-                <AvatarFallback className="text-2xl md:text-3xl font-display bg-muted text-foreground">SO</AvatarFallback>
+                <AvatarFallback className="text-3xl sm:text-4xl md:text-5xl font-display bg-muted text-foreground">SO</AvatarFallback>
               </Avatar>
             </div>
           </motion.div>
