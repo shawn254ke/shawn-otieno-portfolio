@@ -88,7 +88,7 @@ const ProjectsSection = () => {
               className="glass-panel rounded-sm p-6 text-left border-glow group btn-press"
             >
               <div className="mb-4 overflow-hidden rounded-sm">
-                <img src={project.images[0]} alt={project.title} className="w-full aspect-video object-cover group-hover:scale-105 transition-transform duration-500" />
+                <img src={project.images[0]} alt={project.title} className="w-full p-3 aspect-video object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="flex justify-between items-start mb-3">
                 <span className="text-xs font-mono text-primary uppercase tracking-widest">Project {project.id}</span>

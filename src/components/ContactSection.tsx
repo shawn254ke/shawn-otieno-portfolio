@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from "lucide-react";
 import { z } from "zod";
 import { toast } from "sonner";
+import { supabase } from "../lib/supabase";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -14,8 +15,9 @@ const contactSchema = z.object({
 const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
     if (!result.success) {
@@ -26,9 +28,34 @@ const ContactSection = () => {
       setErrors(fieldErrors);
       return;
     }
+    
     setErrors({});
-    toast.success("Message sent successfully!");
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.from("contact_messages").insert([
+        {
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+          created_at: new Date().toISOString(),
+        },
+      ]);
+
+      if (error) {
+        console.error("Supabase error:", error);
+        toast.error("Failed to send message. Please try again.");
+      } else {
+        toast.success("Message sent successfully!");
+        setForm({ name: "", email: "", subject: "", message: "" });
+      }
+    } catch (err) {
+      console.error("Error sending message:", err);
+      toast.error("Failed to send message. Please try again.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const update = (field: string, value: string) => {
@@ -86,10 +113,11 @@ const ContactSection = () => {
             </div>
             <button
               type="submit"
-              className="btn-press inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-widest rounded-sm hover:bg-primary/90 transition-colors"
+              disabled={isLoading}
+              className="btn-press inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-mono text-xs uppercase tracking-widest rounded-sm hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <Send size={14} strokeWidth={1.5} />
-              Send Message
+              {isLoading ? "Sending..." : "Send Message"}
             </button>
           </motion.form>
 
@@ -102,8 +130,8 @@ const ContactSection = () => {
           >
             <div className="glass-panel rounded-sm p-6 space-y-4">
               {[
-                { icon: Mail, label: "Email", value: "shawn.otieno@email.com" },
-                { icon: Phone, label: "Phone", value: "+254 700 000 000" },
+                { icon: Mail, label: "Email", value: "otienoshawn41@gmail.com" },
+                { icon: Phone, label: "Phone", value: "+254 111 205 871" },
                 { icon: MapPin, label: "Location", value: "Kenya" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
@@ -118,9 +146,9 @@ const ContactSection = () => {
 
             <div className="flex gap-3">
               {[
-                { icon: Github, label: "GitHub", href: "#" },
-                { icon: Linkedin, label: "LinkedIn", href: "#" },
-                { icon: Mail, label: "Email", href: "mailto:shawn.otieno@email.com" },
+                { icon: Github, label: "GitHub", href: "https://github.com/shawn254ke" },
+                { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/shawn-otieno-a894851b3" },
+                { icon: Mail, label: "Email", href: "mailto:otienoshawn41@gmail.com" },
               ].map((s, i) => (
                 <a
                   key={i}

@@ -3,17 +3,17 @@ import { Award, Shield } from "lucide-react";
 
 const certs = [
   {
-    title: "Siemens SITRAIN Professional",
-    detail: "PLC programming, diagnostics, and industrial automation training delivery following Siemens SITRAIN methodology.",
+    title: "Bachelor of Science in Instrumentation & Control Engineering",
+    detail: "Multimedia University of Kenya — Graduated with Honors, specializing in industrial automation, control systems, and instrumentation engineering.",
   },
   {
-    title: "U.S. Embassy Burundi — Mission-Critical Power Systems",
-    detail: "Delivered specialized PLC, VFD, and electronic troubleshooting training for embassy technical staff managing critical infrastructure.",
+    title: "Software Engineering Certifications",
+    detail: "Certified Java Programmer, demonstrating proficiency in software development principles, Java programming, and modern web application development.",
     highlight: true,
   },
   {
-    title: "U.S. Embassy Kenya — Industrial Automation",
-    detail: "Hands-on training covering industrial control systems, diagnostics, and maintenance best practices for embassy operations.",
+    title: "SITRAIN PLC Training — Siemens S7-1200",
+    detail: "Completed Siemens SITRAIN training on S7-1200 PLC, covering ladder logic programming, diagnostics, and industrial automation applications.All three levels",
     highlight: true,
   },
   {

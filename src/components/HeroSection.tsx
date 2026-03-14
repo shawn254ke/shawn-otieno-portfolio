@@ -14,21 +14,7 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-          {/* Profile Photo */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex-shrink-0"
-          >
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl" />
-              <Avatar className="h-32 w-32 md:h-40 md:w-40 border-2 border-primary/30 relative">
-                <AvatarImage src="/placeholder.svg" alt="Shawn Otieno" />
-                <AvatarFallback className="text-2xl md:text-3xl font-display bg-muted text-foreground">SO</AvatarFallback>
-              </Avatar>
-            </div>
-          </motion.div>
+          
 
           {/* Content */}
           <motion.div
@@ -68,6 +54,21 @@ const HeroSection = () => {
                 <FileDown size={14} strokeWidth={1.5} />
                 Download CV
               </a>
+            </div>
+          </motion.div>
+          {/* Profile Photo */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex-shrink-0"
+          >
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-2xl" />
+              <Avatar className="h-32 w-32 md:h-60 md:w-60 relative">
+                <AvatarImage src="/profile.png" alt="Shawn Otieno" />
+                <AvatarFallback className="text-2xl md:text-3xl font-display bg-muted text-foreground">SO</AvatarFallback>
+              </Avatar>
             </div>
           </motion.div>
         </div>

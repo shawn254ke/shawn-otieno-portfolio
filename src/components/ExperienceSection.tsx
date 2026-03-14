@@ -17,7 +17,7 @@ const experiences = [
   },
   {
     role: "Technical Trainer",
-    company: "Industrial Automation",
+    company: "Centurion Systems",
     description:
       "Delivered professional training on PLC systems following Siemens SITRAIN methodology. Trained participants in VFD parameterization, pump sizing, electronic troubleshooting, SCADA systems, and HMI design. Covered IT integration within industrial environments including networking, communication protocols, and system connectivity.",
     tags: ["SITRAIN", "PLC Training", "VFD", "HMI"],
